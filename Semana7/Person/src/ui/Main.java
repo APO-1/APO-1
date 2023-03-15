@@ -1,18 +1,21 @@
 package ui; 
 
 import model.Person;
+import java.util.Scanner; 
 
 public class Main{
 	
 	// atributo de la clase
 	private Person person; // conexión con el model por medio de un atributo 
 	private String info;
+	private Scanner reader; // declarando un atributo Scanner
 
 	// constructor
 	public Main(){
 		System.out.println("constructor de la clase Main");
 		person = new Person("P1 Atributo", "30", "a1@correo.com");
 		info = "Clase Main";
+		reader = new Scanner(System.in); // Inicializando el atributo
 
 	}
 
@@ -41,5 +44,6 @@ public class Main{
 	public Person getPerson(){
 		return person;
 	}
+
 
 }
