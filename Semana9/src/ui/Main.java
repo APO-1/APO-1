@@ -1,6 +1,7 @@
 package ui; 
 
 import java.util.Scanner; 
+import model.SavingsSystem;
 
 public class Main{
 
@@ -31,7 +32,8 @@ public class Main{
 
     public void menu(){
         System.out.println("0. Salir"); 
-        System.out.println("1. imprimir el valor"); 
+        System.out.println("1. Add User"); 
+        System.out.println("2. Add Saving"); 
 
     }
 
@@ -39,7 +41,11 @@ public class Main{
     public void executeOption(int option){
         switch (option) {
             case 1:
-                System.out.println("El valor de option es: " + option); 
+                initUser(); 
+                break;
+
+            case 2:
+                addSaving();
                 break;
 
             case 0:
@@ -78,9 +84,18 @@ public class Main{
         System.out.println("Type your id"); 
         userId = reader.next(); 
 
+        // llamada a una operación de control 
         controller.initUser(userName, userId); 
         viewUserName();
 
+    }
+
+    public void addSaving(){
+        double saving; 
+        System.out.println("type saving");
+        saving = reader.nextDouble();
+        String msg = controller.addSaving(saving);
+        System.out.println(msg);
     }
 
 }

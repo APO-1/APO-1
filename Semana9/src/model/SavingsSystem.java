@@ -7,12 +7,20 @@ public class SavingsSystem{
 
 	public SavingsSystem(){ 
 		// constructor vacio 
-		System.out.println("Hola desde el constructor de la clase SavingsSystem en el paquete model");
 	}
 
 	public void initUser(String userName, String userId){
 		// inicializando
 		this.usuario = new User(userName, userId); 
+	}
+
+	public String addSaving(double saving){
+		String msg = "NO hay un usuario registrado";
+
+		if(usuario != null){
+			msg = usuario.addSaving(saving);
+		}
+		return msg;
 	}
 
 	public User getUser(){
