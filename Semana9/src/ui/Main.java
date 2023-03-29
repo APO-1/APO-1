@@ -34,6 +34,7 @@ public class Main{
         System.out.println("0. Salir"); 
         System.out.println("1. Add User"); 
         System.out.println("2. Add Saving"); 
+        System.out.println("3. list savings"); 
 
     }
 
@@ -42,10 +43,16 @@ public class Main{
         switch (option) {
             case 1:
                 initUser(); 
+                System.out.println(controller);
                 break;
 
             case 2:
                 addSaving();
+                break;
+
+            case 3: 
+                String msj = controller.listAllSavings();
+                System.out.println(msj);
                 break;
 
             case 0:
@@ -85,16 +92,25 @@ public class Main{
         userId = reader.next(); 
 
         // llamada a una operación de control 
-        controller.initUser(userName, userId); 
+        controller.addUser(userName, userId); 
         viewUserName();
 
     }
 
     public void addSaving(){
-        double saving; 
-        System.out.println("type saving");
-        saving = reader.nextDouble();
-        String msg = controller.addSaving(saving);
+        double costSaving; 
+        String nameSaving; 
+
+        System.out.println("type cost saving");
+        costSaving = reader.nextDouble();
+
+        System.out.println("type name saving");
+        nameSaving = reader.next();
+
+        // ESto es una dependencia de objetos  
+        /** Saving saving = new Saving(nameSaving, costSaving); */
+
+        String msg = controller.addSaving(nameSaving, costSaving);
         System.out.println(msg);
     }
 

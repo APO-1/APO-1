@@ -6,16 +6,16 @@ public class User{
 
 	private String name; 
 	private String id; 
-	private double[] savings; 
+	private Saving[] savings; 
 
 	public User(String name, String id){
 
 		this.name = name; 
 		this.id = id; 
-		savings = new double[SIZE];
+		savings = new Saving[SIZE];
 	}
 
-	public String addSaving(double saving){
+	public String addSaving(Saving saving){
 		String msg = "No se pudo agregar el gasto";
 		int pos = getFirstValidPosition(); 
 		if(pos != -1){
@@ -30,12 +30,22 @@ public class User{
 		int pos = -1; 
 		boolean isFound = false; 
 		for(int i = 0; i < SIZE && !isFound; i++){
-			if(savings[i] == 0.0){
+			if(savings[i] == null){
 				pos = i; 
 				isFound = true;
 			}
 		}
 		return pos; 
+	}
+
+	public String showSavings(){
+		String msj = ""; 
+		for(int i = 0; i < SIZE; i++){
+			if(savings[i] != null){
+				msj += savings[i].getName() + " "; 
+			}
+		}
+		return msj;
 	}
 
 	public String getName(){
