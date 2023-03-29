@@ -1,5 +1,8 @@
 package model; 
 
+/**
+ * Saving this class represents a saving 
+ * */
 public class Saving{
 
 	private String name; 

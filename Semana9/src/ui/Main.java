@@ -34,7 +34,7 @@ public class Main{
         System.out.println("0. Salir"); 
         System.out.println("1. Add User"); 
         System.out.println("2. Add Saving"); 
-        System.out.println("3. list savings"); 
+        System.out.println("3. List savings"); 
 
     }
 
@@ -60,7 +60,7 @@ public class Main{
                 break; 
 
             case -1: 
-                System.out.println("Invalit Option!!"); 
+                System.out.println("Invalid Option!!"); 
                 break; 
         }
     }
@@ -107,7 +107,7 @@ public class Main{
         System.out.println("type name saving");
         nameSaving = reader.next();
 
-        // ESto es una dependencia de objetos  
+        // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
         String msg = controller.addSaving(nameSaving, costSaving);

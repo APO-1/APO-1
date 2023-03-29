@@ -1,5 +1,8 @@
 package model; 
 
+/**
+ * SavingsSystem this class represents the controller class of the system 
+ * */
 public class SavingsSystem{
 
 	public static final int SIZE_USER = 5; 
@@ -12,9 +15,9 @@ public class SavingsSystem{
 	}
 
 	/**
-	 * initUser: Description 
-	 * @param userName: String 
-	 * @param userId: String 
+	 * addUser: add a new user in the array of users  
+	 * @param userName the name of user to add 
+	 * @param userId the id of user to add 
 	 * 
 	 * */
 	public void addUser(String userName, String userId){
@@ -26,6 +29,11 @@ public class SavingsSystem{
 		}
 	}
 
+	/**
+	 * addSaving: add new saving to user 0 
+	 * @param nameSaving name of the saving to add 
+	 * @param costSaving cost of the saving to add 
+	 * */
 	public String addSaving(String nameSaving, double costSaving){
 		String msg = "NO hay un usuario registrado";
 
@@ -36,6 +44,10 @@ public class SavingsSystem{
 		return msg;
 	}
 
+	/**
+	 * getFirstValidPosition: search in array if exist one valid position
+	 * @return pos -1 if the position does not exist, a number in [0, 9] if exist a valid position
+	 * */
 	public int getFirstValidPosition(){
 		int pos = -1; 
 		boolean isFound = false; 
@@ -48,6 +60,9 @@ public class SavingsSystem{
 		return pos; 
 	}
 
+	/**
+	 * listAllSavings list the all savings in the system, all savings of all users
+	 * */
 	public String listAllSavings(){
 		String msj = ""; 
 		for(int i = 0; i< SIZE_USER; i++){
