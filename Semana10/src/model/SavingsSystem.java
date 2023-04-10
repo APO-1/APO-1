@@ -34,7 +34,7 @@ public class SavingsSystem{
 	 * @param nameSaving name of the saving to add 
 	 * @param costSaving cost of the saving to add 
 	 * */
-	public String addSaving(String nameSaving, double costSaving, int category){
+	public String addSaving(String nameSaving, double costSaving, int category, String idUser){
 		String msg = "NO hay un usuario registrado";
 
 		Category savingCategory; 
@@ -53,11 +53,12 @@ public class SavingsSystem{
 		else{
 			savingCategory = Category.UNIVERSITY;
 		}
+		User user=searchUser(idUser);
 
 
-		if(users[0] != null){
+		if(user != null){
 			Saving saving = new Saving(nameSaving, costSaving, savingCategory);
-			msg = users[0].addSaving(saving);
+			msg = user.addSaving(saving);
 		}
 		return msg;
 	}
@@ -98,6 +99,15 @@ public class SavingsSystem{
 
 	public String toString(){
 		return " Hola desde el to string del controlador";
+	}
+	public User searchUser(String id){
+		User user=null;
+		for(int i=0;i<users.length;i++){
+			if(users[i]!=null&&users[i].getId().equals(id)){
+				user=users[i];
+			}
+		}
+		return user;
 	}
 
 }
