@@ -31,10 +31,6 @@ public class User{
 		this.name = name; 
 		this.id = id; 
 		savings = new Saving[SIZE];
-		savings[0] = new Saving("s1", 10.0);
-		savings[1] = new Saving("s2", 20.0);
-		savings[2] = new Saving("s3", 30.0);
-		savings[3] = new Saving("s4", 40.0);
 	}
 
 	/**
