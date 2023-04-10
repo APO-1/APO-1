@@ -61,6 +61,20 @@ public class SavingsSystem{
 		}
 		return msg;
 	}
+	
+	public void searchUser(String userId){
+		boolean isFound= false;
+
+		for(int i = 0; i<SIZE_USER && !isFound; i++){
+			if(users[i].getId().equalsIgnoreCase(userId)){
+				isFound = true;               
+			}else {
+				isFound = true;
+				System.out.println("El usuario no ha sido encontrado");
+			}
+		}
+
+	}
 
 	/**
 	 * getFirstValidPosition: search in array if exist one valid position
