@@ -42,7 +42,6 @@ public class Main {
         switch (option) {
             case 1:
                 initUser();
-                System.out.println(controller);
                 break;
 
             case 2:
@@ -82,7 +81,7 @@ public class Main {
 
     public void viewUserName() {
         System.out.println("El usuario: " + controller.getUser(controller.getFirstValidPosition() - 1).getName()
-                + "fue creado correctamente");
+                + " fue creado correctamente");
     }
 
     public void initUser() {
@@ -105,6 +104,7 @@ public class Main {
         String nameSaving;
         int category;
         String userID;
+        String otherTextExplanation = null;
 
         System.out.println("Please insert the User's ID you want to add a saving to. ");
         reader.nextLine();
@@ -123,13 +123,20 @@ public class Main {
         System.out.println(" 3. for SERVICES");
         System.out.println(" 4. for HEALTH");
         System.out.println(" 5. for UNIVERSITY");
+        System.out.println(" 6. for OTHER");
 
         category = reader.nextInt();
+
+        if (category == 6) {
+            System.out.println("What type is your saving?");
+            reader.nextLine();
+            otherTextExplanation = reader.nextLine();
+        }
 
         // Esto es una dependencia de objetos --> esto no debería hacerse
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category, userID);
+        String msg = controller.addSaving(nameSaving, costSaving, category, userID, otherTextExplanation);
         System.out.println(msg);
     }
 

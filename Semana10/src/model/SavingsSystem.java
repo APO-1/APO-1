@@ -49,7 +49,8 @@ public class SavingsSystem {
 	 * @param nameSaving name of the saving to add
 	 * @param costSaving cost of the saving to add
 	 */
-	public String addSaving(String nameSaving, double costSaving, int category, String userID) {
+	public String addSaving(String nameSaving, double costSaving, int category, String userID,
+			String OhterOptionInformation) {
 		String msg = "NO hay un usuario registrado";
 
 		Category savingCategory;
@@ -61,8 +62,13 @@ public class SavingsSystem {
 			savingCategory = Category.SERVICES;
 		} else if (category == 4) {
 			savingCategory = Category.HEALTH;
-		} else {
+		} else if (category == 5) {
 			savingCategory = Category.UNIVERSITY;
+		} else if (category == 6) {
+			savingCategory = Category.OTHER;
+			Category.OTHER.setValue(OhterOptionInformation);
+		} else {
+			savingCategory = null;
 		}
 
 		if (users[0] != null && findUser(userID) != -1) {
@@ -97,7 +103,7 @@ public class SavingsSystem {
 		String msj = "";
 		for (int i = 0; i < SIZE_USER; i++) {
 			if (users[i] != null) {
-				msj += "\n" + users[i].getName() + ": " + users[i].showSavings();
+				msj += "\n" + users[i].getName() + ": " + "\n\t" + users[i].showSavings();
 			}
 		}
 		return msj;
