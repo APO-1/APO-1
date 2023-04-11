@@ -128,8 +128,8 @@ public class Main {
         category = reader.nextInt();
 
         if (category == 6) {
-            System.out.println("What type is your saving?");
             reader.nextLine();
+            System.out.println("What type is your saving?");
             otherTextExplanation = reader.nextLine();
         }
 

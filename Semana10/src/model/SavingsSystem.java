@@ -103,7 +103,7 @@ public class SavingsSystem {
 		String msj = "";
 		for (int i = 0; i < SIZE_USER; i++) {
 			if (users[i] != null) {
-				msj += "\n" + users[i].getName() + ": " + "\n\t" + users[i].showSavings();
+				msj += "\n" + users[i].getName() + ": " + "\t" + users[i].showSavings();
 			}
 		}
 		return msj;

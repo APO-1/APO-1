@@ -85,7 +85,7 @@ public class User {
 		String msj = "";
 		for (int i = 0; i < SIZE; i++) {
 			if (savings[i] != null) {
-				msj += savings[i].getName() + " ";
+				msj += savings[i].getName() + "\n";
 			}
 		}
 		return msj;
