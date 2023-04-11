@@ -30,10 +30,11 @@ public class Main {
     }
 
     public void menu() {
-        System.out.println("0. Salir");
+        System.out.println("\n-----WELCOME----\n");
         System.out.println("1. Add User");
         System.out.println("2. Add Saving");
         System.out.println("3. List savings");
+        System.out.println("\n0. Salir");
 
     }
 
@@ -50,7 +51,11 @@ public class Main {
 
             case 3:
                 String msj = controller.listAllSavings();
-                System.out.println(msj);
+                if (msj.equalsIgnoreCase("")) {
+                    System.out.println("There are not savings registered");
+                } else {
+                    System.out.println(msj);
+                }
                 break;
 
             case 0:
@@ -76,7 +81,8 @@ public class Main {
     }
 
     public void viewUserName() {
-        System.out.println(controller.getUser().getName());
+        System.out.println("El usuario: " + controller.getUser(controller.getFirstValidPosition() - 1).getName()
+                + "fue creado correctamente");
     }
 
     public void initUser() {
@@ -100,25 +106,25 @@ public class Main {
         int category;
         String userID;
 
-        System.out.println("type cost saving");
+        System.out.println("Please insert the User's ID you want to add a saving to. ");
+        reader.nextLine();
+        userID = reader.nextLine();
+
+        System.out.println("How much are you saving?");
         costSaving = reader.nextDouble();
 
-        System.out.println("type name saving");
+        System.out.println("Saving's name: ");
         reader.nextLine();
         nameSaving = reader.nextLine();
 
         System.out.println("Type type of Saving:");
         System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+        System.out.println(" 2. for DINNER");
+        System.out.println(" 3. for SERVICES");
+        System.out.println(" 4. for HEALTH");
+        System.out.println(" 5. for UNIVERSITY");
 
         category = reader.nextInt();
-
-        System.out.println("Please insert the User's ID");
-        reader.nextLine();
-        userID = reader.nextLine();
 
         // Esto es una dependencia de objetos --> esto no debería hacerse
         /** Saving saving = new Saving(nameSaving, costSaving); */

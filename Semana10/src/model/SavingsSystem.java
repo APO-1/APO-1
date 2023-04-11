@@ -97,18 +97,14 @@ public class SavingsSystem {
 		String msj = "";
 		for (int i = 0; i < SIZE_USER; i++) {
 			if (users[i] != null) {
-				msj += users[i].showSavings();
+				msj += "\n" + users[i].getName() + ": " + users[i].showSavings();
 			}
 		}
 		return msj;
 	}
 
-	public User getUser() {
-		return users[0];
-	}
-
-	public String toString() {
-		return " Hola desde el to string del controlador";
+	public User getUser(int position) {
+		return users[position];
 	}
 
 }
