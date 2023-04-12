@@ -98,9 +98,14 @@ public class Main{
     }
 
     public void addSaving(){
+
+        
         double costSaving; 
         String nameSaving; 
         int category;
+        System.out.println("Enter user id");
+        String id = reader.next();
+        
 
         System.out.println("type cost saving");
         costSaving = reader.nextDouble();
@@ -120,7 +125,7 @@ public class Main{
         // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
+        String msg = controller.addSaving(nameSaving, costSaving, category, id);
         System.out.println(msg);
     }
 

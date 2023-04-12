@@ -32,6 +32,11 @@ public class User{
 		this.id = id; 
 		savings = new Saving[SIZE];
 	}
+	public String getId(){
+		return this.id;
+
+	}
+
 
 	/**
 	 * addSaving: add one object type saving in the array of savings 

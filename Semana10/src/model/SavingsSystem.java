@@ -29,36 +29,53 @@ public class SavingsSystem{
 		}
 	}
 
+	public int searchById(String id){
+		int pos =-1;
+		boolean userFound = false;
+		for(int i = 0; i < SIZE_USER && !userFound; i++){
+			if(users[i] != null && users[i].getId().equals(id)){
+				pos = i;
+				userFound = true;
+			}
+
+		}
+
+		return pos ;
+
+	}
 	/**
 	 * addSaving: add new saving to user 0 
 	 * @param nameSaving name of the saving to add 
 	 * @param costSaving cost of the saving to add 
 	 * */
-	public String addSaving(String nameSaving, double costSaving, int category){
+	public String addSaving(String nameSaving, double costSaving, int category,String id){
 		String msg = "NO hay un usuario registrado";
+		int pos = searchById(id);
+		if (pos!= -1){
 
-		Category savingCategory; 
-		if(category == 1){
-			savingCategory = Category.TRANSPORT; 
-		}
-		else if(category == 2){
-			savingCategory = Category.DINNER; 
-		}
-		else if(category == 3){
-			savingCategory = Category.SERVICES; 
-		}
-		else if (category == 4) {
-			savingCategory = Category.HEALTH;
-		}
-		else{
-			savingCategory = Category.UNIVERSITY;
-		}
-
-
-		if(users[0] != null){
+			Category savingCategory; 
+			if(category == 1){
+				savingCategory = Category.TRANSPORT; 
+			}
+			else if(category == 2){
+				savingCategory = Category.DINNER; 
+			}
+			else if(category == 3){
+				savingCategory = Category.SERVICES; 
+			}
+			else if (category == 4) {
+				savingCategory = Category.HEALTH;
+			}
+			else{
+				savingCategory = Category.UNIVERSITY;
+			}
+			
 			Saving saving = new Saving(nameSaving, costSaving, savingCategory);
-			msg = users[0].addSaving(saving);
+			msg = users[pos].addSaving(saving);
+		
+
 		}
+
 		return msg;
 	}
 
