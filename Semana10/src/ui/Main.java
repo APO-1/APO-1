@@ -78,8 +78,9 @@ public class Main{
         return option; 
     }
 
-    public void viewUserName(){
-        System.out.println(controller.getUser().getName());
+    public void viewUserName(String userId){
+        System.out.println(controller.findUserByIde(userId).getName());
+ 
     }
 
     public void initUser(){
@@ -108,6 +109,10 @@ public class Main{
         System.out.println("type name saving");
         nameSaving = reader.next();
 
+        System.out.println("Type the id user that you want save the saving");
+        String ide= reader.next();
+        int pos= controller.findUserByIde(ide);
+
         System.out.println("Type type of Saving:"); 
         System.out.println(" 1. for TRANSPORT");
         System.out.println(" 2. for ");
@@ -120,7 +125,7 @@ public class Main{
         // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
+        String msg = controller.addSaving(nameSaving, costSaving, category, pos);
         System.out.println(msg);
     }
 
