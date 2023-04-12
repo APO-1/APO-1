@@ -117,10 +117,14 @@ public class Main{
 
         category = reader.nextInt();
 
+        System.out.println("Seleccione un usuario");
+        System.out.println(controller.showUsers());
+        int option=reader.nextInt();
+
         // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
+        String msg = controller.addSaving(option, nameSaving, costSaving, category);
         System.out.println(msg);
     }
 
