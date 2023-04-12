@@ -1,6 +1,9 @@
 package ui; 
 
-import java.util.Scanner; 
+import java.util.Scanner;
+
+import javax.sound.midi.ControllerEventListener;
+
 import model.SavingsSystem;
 
 public class Main{
@@ -78,8 +81,8 @@ public class Main{
         return option; 
     }
 
-    public void viewUserName(){
-        System.out.println(controller.getUser().getName());
+    public void viewUserName(String userId){
+        System.out.println(controller.findUserById(userId).getName());
     }
 
     public void initUser(){
@@ -93,35 +96,42 @@ public class Main{
 
         // llamada a una operación de control 
         controller.addUser(userName, userId); 
-        viewUserName();
+        viewUserName(userId);
 
     }
 
     public void addSaving(){
+        String userId;
         double costSaving; 
         String nameSaving; 
         int category;
 
-        System.out.println("type cost saving");
-        costSaving = reader.nextDouble();
+        System.out.println("type the user ID to add the saving");
+        userId = reader.next();
+        if (controller.findUserById(userId) != null) {
 
-        System.out.println("type name saving");
-        nameSaving = reader.next();
+            System.out.println("type cost saving");
+            costSaving = reader.nextDouble();
+            System.out.println("type name saving");
+            nameSaving = reader.next();
+            reader.nextLine();
+            
+            System.out.println("type the saving category");
+            System.out.println("1. TRANSPORT");
+            System.out.println("2. DINNER");
+            System.out.println("3. SERVICES");
+            System.out.println("4. HEALTH");
+            System.out.println("5. UNIVERSITY");
+            category = reader.nextInt();
+            reader.nextLine();
 
-        System.out.println("Type type of Saving:"); 
-        System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+            String msg = controller.addSaving(userId, nameSaving, costSaving, category);
+            System.out.println(msg);
+        } else {
+            System.out.println("User not found");
+        }
 
-        category = reader.nextInt();
 
-        // Esto es una dependencia de objetos --> esto no debería hacerse 
-        /** Saving saving = new Saving(nameSaving, costSaving); */
-
-        String msg = controller.addSaving(nameSaving, costSaving, category);
-        System.out.println(msg);
     }
 
 }

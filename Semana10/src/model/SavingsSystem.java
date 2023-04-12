@@ -34,30 +34,31 @@ public class SavingsSystem{
 	 * @param nameSaving name of the saving to add 
 	 * @param costSaving cost of the saving to add 
 	 * */
-	public String addSaving(String nameSaving, double costSaving, int category){
+	public String addSaving(String userId, String nameSaving, double costSaving, int category){
 		String msg = "NO hay un usuario registrado";
+		Category categorySaving;
 
-		Category savingCategory; 
-		if(category == 1){
-			savingCategory = Category.TRANSPORT; 
+		if (category == 1) {
+			categorySaving = Category.TRANSPORT;//inicializo mi categroia con el enum
+		} 
+		else if (category == 2) {
+			categorySaving = Category.DINNER;//inicializo mi categroia con el enum
 		}
-		else if(category == 2){
-			savingCategory = Category.DINNER; 
-		}
-		else if(category == 3){
-			savingCategory = Category.SERVICES; 
+		else if (category == 3) {
+			categorySaving = Category.SERVICES;//inicializo mi categroia con el enum
 		}
 		else if (category == 4) {
-			savingCategory = Category.HEALTH;
+			categorySaving = Category.HEALTH;//inicializo mi categroia con el enum
 		}
-		else{
-			savingCategory = Category.UNIVERSITY;
+		else {
+			categorySaving = Category.UNIVERSITY;//inicializo mi categroia con el enum
 		}
-
-
-		if(users[0] != null){
-			Saving saving = new Saving(nameSaving, costSaving, savingCategory);
-			msg = users[0].addSaving(saving);
+			
+		if(findUserById(userId) != null){
+			Saving saving = new Saving(nameSaving, costSaving, categorySaving);
+			msg = findUserById(userId).addSaving(saving);
+		} else {
+			msg = "User does not exist";
 		}
 		return msg;
 	}
@@ -77,6 +78,7 @@ public class SavingsSystem{
 		}
 		return pos; 
 	}
+
 
 	/**
 	 * listAllSavings list the all savings in the system, all savings of all users
@@ -98,6 +100,15 @@ public class SavingsSystem{
 
 	public String toString(){
 		return " Hola desde el to string del controlador";
+	}
+
+	public User findUserById(String id) {
+		for (User user : users) {
+			if (user != null && user.getId().equals(id)) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 }
