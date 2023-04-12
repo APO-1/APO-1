@@ -35,6 +35,7 @@ public class Main{
         System.out.println("1. Add User"); 
         System.out.println("2. Add Saving"); 
         System.out.println("3. List savings"); 
+        System.out.println("4. Search user");
 
     }
 
@@ -110,10 +111,10 @@ public class Main{
 
         System.out.println("Type type of Saving:"); 
         System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+        System.out.println(" 2. for DINNER");
+        System.out.println(" 3. for SERVICE");
+        System.out.println(" 4. for HEALTH");
+        System.out.println(" 5. for UNIVERSITY");
 
         category = reader.nextInt();
 
