@@ -34,8 +34,9 @@ public class SavingsSystem{
 	 * @param nameSaving name of the saving to add 
 	 * @param costSaving cost of the saving to add 
 	 * */
-	public String addSaving(String nameSaving, double costSaving, int category){
+	public String addSaving(String nameSaving, double costSaving, int category, String userId){
 		String msg = "NO hay un usuario registrado";
+		int userPos;
 
 		Category savingCategory; 
 		if(category == 1){
@@ -54,10 +55,13 @@ public class SavingsSystem{
 			savingCategory = Category.UNIVERSITY;
 		}
 
-
-		if(users[0] != null){
+		userPos = searchUser(userId);
+	
+		if(users[userPos] != null && userPos != -1){
 			Saving saving = new Saving(nameSaving, costSaving, savingCategory);
-			msg = users[0].addSaving(saving);
+			msg = users[userPos].addSaving(saving);
+		} else {
+			msg = "No exists";
 		}
 		return msg;
 	}
@@ -95,9 +99,24 @@ public class SavingsSystem{
 		return users[0];
 	}
 	
-
 	public String toString(){
 		return " Hola desde el to string del controlador";
+	}
+
+	public int searchUser(String userId) {
+		int pos = 0;
+		boolean isFound = false;
+		int size;
+
+		size = (getFirstValidPosition()==-1)?10:getFirstValidPosition();
+
+		for(int i = 0; i < size && !isFound; i++) {
+			if(userId.equals(users[i].getId())) {
+				pos = i;
+				isFound = true;
+			}
+		}
+		return pos;
 	}
 
 }
