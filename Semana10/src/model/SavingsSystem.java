@@ -34,7 +34,7 @@ public class SavingsSystem{
 	 * @param nameSaving name of the saving to add 
 	 * @param costSaving cost of the saving to add 
 	 * */
-	public String addSaving(String nameSaving, double costSaving, int category){
+	public String addSaving(String nameSaving, double costSaving, int category, String idUser){
 		String msg = "NO hay un usuario registrado";
 
 		Category savingCategory; 
@@ -55,11 +55,26 @@ public class SavingsSystem{
 		}
 
 
-		if(users[0] != null){
-			Saving saving = new Saving(nameSaving, costSaving, savingCategory);
-			msg = users[0].addSaving(saving);
+		if(searchUser(idUser) != -1){
+			Saving saving;
+			saving = new Saving(nameSaving, costSaving, savingCategory);
+			msg = users[searchUser(idUser)].addSaving(saving);
+		}
+		else{
+			msg = "The id doesnt have a match";
 		}
 		return msg;
+	}
+
+	public int searchUser(String idUser){
+		int iteration = -1;
+		for (int i = 0; i < getFirstValidPosition(); i++) {
+			if(idUser.equals(users[i].getId())){
+				iteration = i;
+			}
+		}
+		return iteration;
+
 	}
 
 	/**
