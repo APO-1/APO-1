@@ -99,5 +99,49 @@ public class SavingsSystem{
 	public String toString(){
 		return " Hola desde el to string del controlador";
 	}
+	
+	private int searchUserByName(String name){
+		int position = -1;
+		boolean exit = false;
+		for (int i = 0; i<SIZE_USER; i++){
+			if (users[i]!=null){
+				if (users[i].getName().equalsIgnoreCase(name)){
+					position = i;
+					exit = true;
+				}
+			}
+		}
+		return position;
+	}
+	public String listUserByName(String userName){
+		int position = searchUserByName(userName);
+		if (position == -1){
+			return "There's no user with that name";
+		}else{
+			return "User: " + users[position].getName() + "\nId: " + users[position].getId();
+		}
+	}
+	
+	private int searchUserById(String id){
+		int position = -1;
+		boolean exit = false;
+		for (int i = 0; i<SIZE_USER; i++){
+			if (users[i]!=null){
+				if (users[i].getId().equalsIgnoreCase(id)){
+					position = i;
+					exit = true;
+				}
+			}
+		}
+		return position;
+	}
+	public String listUserById(String userId){
+		int position = searchUserById(userId);
+		if (position == -1){
+			return "There's no user with that name";
+		}else{
+			return "User: " + users[position].getName() + "\nId: " + users[position].getId();
+		}
+	}
 
 }
