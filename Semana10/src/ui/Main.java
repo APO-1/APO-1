@@ -100,9 +100,13 @@ public class Main{
     public void addSaving(){
         double costSaving; 
         String nameSaving; 
+        String userId;
         int category;
 
-        System.out.println("type cost saving");
+        System.out.print("Type user's id: ");
+        userId = reader.nextLine();
+
+        System.out.println("\ntype cost saving");
         costSaving = reader.nextDouble();
 
         System.out.println("type name saving");
@@ -120,7 +124,7 @@ public class Main{
         // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
+        String msg = controller.addSaving(nameSaving, costSaving, category, userId);
         System.out.println(msg);
     }
 
