@@ -102,26 +102,35 @@ public class Main{
         String nameSaving; 
         int category;
 
-        System.out.println("type cost saving");
-        costSaving = reader.nextDouble();
+        System.out.print("type the user's id where you want to store the saving: ");
+        String userID= reader.next();
+        int userPosition = controller.searchUserByID(userID);
 
-        System.out.println("type name saving");
-        nameSaving = reader.next();
+        if(userPosition != -1){
 
-        System.out.println("Type type of Saving:"); 
-        System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+            System.out.println("type cost saving");
+            costSaving = reader.nextDouble();
 
-        category = reader.nextInt();
+            System.out.println("type name saving");
+            nameSaving = reader.next();
 
-        // Esto es una dependencia de objetos --> esto no debería hacerse 
-        /** Saving saving = new Saving(nameSaving, costSaving); */
+            System.out.println("Type type of Saving:"); 
+            System.out.println(" 1. for TRANSPORT");
+            System.out.println(" 2. for ");
+            System.out.println(" 3. for ");
+            System.out.println(" 4. for ");
+            System.out.println(" 5. for ");
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
-        System.out.println(msg);
+            category = reader.nextInt();
+
+            // Esto es una dependencia de objetos --> esto no debería hacerse 
+            /** Saving saving = new Saving(nameSaving, costSaving); */
+
+            String msg = controller.addSaving(nameSaving, costSaving, category, userPosition);
+            System.out.println(msg);
+        }else{
+            System.out.println("There is no user with that id");
+        }
     }
 
 }
