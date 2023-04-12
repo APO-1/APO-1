@@ -57,12 +57,14 @@ public class Main{
                 break;
                 
             case 4:
+               SearchUser();
+               break;
 
             case 0:
                 System.out.println("Exit."); 
                 break; 
 
-            case -1: 
+            default: 
                 System.out.println("Invalid Option!!"); 
                 break; 
         }
@@ -125,6 +127,19 @@ public class Main{
 
         String msg = controller.addSaving(nameSaving, costSaving, category);
         System.out.println(msg);
+    }
+
+    public void SearchUser(){
+        System.out.println("Escriba el id o identificacion de la persona a buscar");
+        String id = reader.next();
+        int pos = searchUserById(id);
+        if (pos != -1) {
+           String nombre = users[pos].getNombre();
+           String apellido = users[pos].getApellido();
+           System.out.println("La persona con ID " + idBuscar + " es " + nombre + " " + apellido);
+        } else {
+           System.out.println("No se encontro ninguna persona con ID " + idBuscar);
+        }
     }
 
 }

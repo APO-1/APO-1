@@ -95,11 +95,11 @@ public class SavingsSystem{
 		return users[0];
 	}
 
-	public int searchUserByName(String name){
+	public int searchUserById(String id){
 		int pos = -1; 
 		boolean isFound = false; 
 		for(int i = 0; i < SIZE_USER && !isFound; i++ ){
-			if(users[i].getName().equals(name)){
+			if(users[i].getId().equals(id)){
 				pos = i; 
 				isFound = true; 
 			}
