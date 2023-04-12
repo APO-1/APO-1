@@ -94,6 +94,18 @@ public class SavingsSystem{
 	public User getUser(){
 		return users[0];
 	}
+
+	public int searchUserByName(String name){
+		int pos = -1; 
+		boolean isFound = false; 
+		for(int i = 0; i < SIZE_USER && !isFound; i++ ){
+			if(users[i].getName().equals(name)){
+				pos = i; 
+				isFound = true; 
+			}
+		}
+		return pos; 
+	}
 	
 
 	public String toString(){

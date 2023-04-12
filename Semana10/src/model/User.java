@@ -83,6 +83,12 @@ public class User{
 		return name; 
 	}
 
+	public String toString(){
+		return 
+			"Name: " + this.name + "\n" +
+			"Id: " + this.id; 
+	}
+
 
 
 

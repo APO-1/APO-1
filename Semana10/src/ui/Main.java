@@ -55,6 +55,8 @@ public class Main{
                 String msj = controller.listAllSavings();
                 System.out.println(msj);
                 break;
+                
+            case 4:
 
             case 0:
                 System.out.println("Exit."); 
