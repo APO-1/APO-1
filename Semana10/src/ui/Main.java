@@ -110,17 +110,19 @@ public class Main{
 
         System.out.println("Type type of Saving:"); 
         System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+        System.out.println(" 2. for DINNER ");
+        System.out.println(" 3. for SERVICES");
+        System.out.println(" 4. for HEALTH");
+        System.out.println(" 5. for UNIVERSITY");
 
         category = reader.nextInt();
+        System.out.println("Type the your id");
+        String id=reader.next();
 
         // Esto es una dependencia de objetos --> esto no debería hacerse 
         /** Saving saving = new Saving(nameSaving, costSaving); */
 
-        String msg = controller.addSaving(nameSaving, costSaving, category);
+        String msg = controller.addSaving(nameSaving, costSaving, category,id);
         System.out.println(msg);
     }
 
