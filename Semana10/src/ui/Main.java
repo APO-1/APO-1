@@ -132,13 +132,8 @@ public class Main{
     public void SearchUser(){
         System.out.println("Escriba el id o identificacion de la persona a buscar");
         String id = reader.next();
-        int pos = searchUserById(id);
-        if (pos != -1) {
-           String name = users[pos].getName();
-           System.out.println("La persona con ID " + id + " es " + name);
-        } else {
-           System.out.println("No se encontro ninguna persona con ID " + id);
-        }
+        int pos = controller.validateUserById(id);
+        controller.searchId(pos, id);
     }
 
 }
