@@ -1,5 +1,6 @@
 package model;
 
+// final -> indica el final de una herencia 
 public class Human extends Mammal {
 
 	private String cc; 
