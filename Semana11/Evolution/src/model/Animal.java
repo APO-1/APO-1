@@ -1,6 +1,6 @@
 package model; 
 
-public abstract class Animal{
+public abstract class Animal implements IWalk{
 	
 	protected String name;
 	private int year; 
@@ -30,6 +30,11 @@ public abstract class Animal{
 
 	public String toString(){
 		return "toString Animal class";
+	}
+
+	@Override
+	public String walk(){
+		return "Walk as Animal ...";
 	}
 
 }
