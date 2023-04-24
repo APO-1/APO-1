@@ -13,6 +13,20 @@ public class SavingsSystem{
 		users = new User[SIZE_USER];
 
 	}
+	public User searchUser(String id){
+		int pos = -1;
+		boolean isFound = false;
+
+		for(int i = 0; i < SIZE_USER && !isFound; i++){
+			if(users[i] != null){
+				isFound = true;
+				pos = 1;
+			}
+			
+		}
+
+
+	}
 
 	/**
 	 * addUser: add a new user in the array of users  
@@ -98,6 +112,20 @@ public class SavingsSystem{
 
 	public String toString(){
 		return " Hola desde el to string del controlador";
+	}
+	public int searchUser(String id){
+		int pos = -1;
+		boolean isFound = false;
+
+		for(int i = 0; i < SIZE_USER && !isFound; i++){
+			if(users[i] != null){
+				isFound = true;
+				pos = 1;
+			}
+			
+		}
+
+
 	}
 
 }
