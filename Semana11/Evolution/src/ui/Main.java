@@ -78,6 +78,22 @@ public class Main{
 
 		System.out.println("***********************************");
 
+		System.out.println("***********************************");
+		System.out.println("RUN");
+		 
+		System.out.println(human1.run()); // Animal
+		System.out.println(human2.run()); // Mammal
+		System.out.println(human3.run()); // human
+		System.out.println(sapiens.run());//Homosapiens
+		System.out.println(dog.run()); // Dog
+		System.out.println(bird1.run()); // Bird
+		System.out.println(bird2.run()); // Aniaml
+		System.out.println(((IWalk)bird3).run()); // IFly
+		System.out.println(bird4.run()); // IWalk
+
+
+		System.out.println("***********************************");
+
 		/** Animal sapiens = new HomoSapiens("sapiens", 10, "spiens", "777"); */
 		/** System.out.println("sapiens : " + sapiens); */
 
