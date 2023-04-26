@@ -24,6 +24,11 @@ public class Human extends Mammal {
 		return "I'am a human ...";
 	}
 
+	@Override
+	public String walk(){
+		return "Walk as Human";
+	}
+
 	public String toString(){
 		return "toString Human class";
 	}

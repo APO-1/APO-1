@@ -10,4 +10,8 @@ public class Dog extends Mammal{
 	public String communication(){
 		return "woof";
 	}
+
+	public String sayHello(){
+		return "Woof woof!!"; 
+	}
 }

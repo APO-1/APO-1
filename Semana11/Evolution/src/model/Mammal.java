@@ -18,6 +18,11 @@ public abstract class Mammal extends Animal{
 		this.specie = specie;
 	}
 
+	
+	public String sayHello(){
+		return "Animal make souns";
+	}
+
 	public String toString(){
 		return "toString de la clase Mammal " + this.specie + " "+ getYear() + " " + super.name;
 	}
