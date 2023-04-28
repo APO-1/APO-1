@@ -10,6 +10,41 @@ public class AnimalsController{
 
 	}
 
+	public void createAnimal(String name, int year, String specie, String cc, int type){
+
+		Animal animal = null; 
+
+		switch (type) {
+			case 1:
+				animal = new Human(name, year, specie, cc);	
+				break;
+			case 2:
+				animal =  new Dog(name, year, specie); 
+				break;
+			case 3: 
+				animal = new Bird(name, year);
+				break;
+		}
+
+		animals[0] = animal;
+
+	}
+
+	public void createAnimal(String name, int year, String specie, String cc){
+		Animal human = new Human(name, year, specie, cc); 
+		animals[0] = human; 
+	}
+
+	public void createAnimal(String name, int  year, String specie){
+		Animal dog = new Dog(name, year, specie); 
+		animals[0] = dog; 
+	}
+
+	public void createAnimal(String name, int year){
+		Animal bird = new Bird(name, year); 
+		animals[0] = bird;
+	}
+
 	public void initAnimals(){
 		Animal human1 = new Human("Human1", 10, "HomoSapiens", "889");
 		Animal human2 = new Human("Human2", 20, "HomoSapiens", "8810");
@@ -46,6 +81,16 @@ public class AnimalsController{
 		String msj = ""; 
 		for(int i = 0; i < ANIMALS_SIZE; i++){
 			if(animals[i] != null){
+				msj += animals[i] + "\n"; 
+			}
+		}
+		return msj;
+	}
+
+	public String listHumans(){
+		String msj = ""; 
+		for(int i = 0; i < ANIMALS_SIZE; i++){
+			if(animals[i] != null && (animals[i] instanceof Human) ){
 				msj += animals[i] + "\n"; 
 			}
 		}
