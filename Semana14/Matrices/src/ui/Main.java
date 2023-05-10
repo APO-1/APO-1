@@ -17,6 +17,9 @@ public class Main{
 		String r = controller.getRow(2);
 		System.out.println(r); 
 
+		System.out.println(controller.getNmatrix());
+		System.out.println(controller.getPeople()); 
+
 	}
 
 }
