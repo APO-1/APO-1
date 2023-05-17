@@ -32,9 +32,10 @@ public class Main{
 		/** System.out.println(controller.getNmatrix()); */
 		/** System.out.println(controller.getPeople());  */
 
-		main.addPerson(); 
-		main.printPeople(); 
-		main.searchByName(); 
+		/** main.addPerson();  */
+		/** main.printPeople();  */
+		/** main.searchByName();  */
+		main.printTensor(); 
 
 	}
 
@@ -63,6 +64,13 @@ public class Main{
 		System.out.println(controller.printPeople()); 
 	}
 	
+	public void printTensor(){
+
+		System.out.println(controller.showMatrixOfTensor(0)); 
+		/** System.out.println(controller.showMatrixOfTensor(1));  */
+		/** System.out.println(controller.showMatrixOfTensor(2));  */
+
+	}
 
 
 }

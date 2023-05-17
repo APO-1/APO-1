@@ -13,12 +13,16 @@ public class MatrixCalculator{
 
 	private ArrayList<Person> people; 
 
+	private ArrayList<Person[][]> peopleMatrix;
+
 	public MatrixCalculator(){
 		matrix = new int[ROW][COLUMN]; 
 		initMatrix();
 		numbers = new ArrayList<Integer>(); 
 		people = new ArrayList<Person>(15);
+		peopleMatrix = new ArrayList<>();
 		initPeople(); 
+		initPeopleTensor(); 
 
 	}
 
@@ -120,6 +124,33 @@ public class MatrixCalculator{
 		return msj; 
 	}
 
+	public Person[][] initPeopleMatrix(){
+		Person[][] people = new Person[ROW][COLUMN]; 
+		for(int i = 0; i < ROW; i++){
+			for(int j = 0; j < COLUMN; j++){
+				people[i][j] = new Person("name "+ (i+j) , i+j); 
+			}
+		}
+		return people; 
+	}
+
+	public void initPeopleTensor(){
+		for(int i = 0; i < 3; i++){
+			peopleMatrix.add(initPeopleMatrix()); 
+		}
+	}
+
+	public String showMatrixOfTensor(int pos){
+		String msj = ""; 
+		Person[][] temp = peopleMatrix.get(pos); 
+		for(int i = 0; i < ROW; i++){
+			for(int j = 0; j < COLUMN; j++){
+				msj += temp[i][j]; 
+			}
+			msj += "\n"; 
+		}
+		return msj; 
+	}
 
 
 

@@ -22,7 +22,7 @@ public class Person implements Comparable<Person> {
 
 	@Override
 	public String toString(){
-		return "Name: " + name + " age: " + age + "\n";
+		return "Name: " + name + " age: " + age + " ";
 	}
 
 	public int compareTo(Person person){
