@@ -81,9 +81,8 @@ public class MatrixCalculator{
 	}
 
 	public void initPeople(){
-		System.out.println(people.get(0));
-		for(int i = 0; i < people.size(); i++){
-			people.add(new Person()); 
+		for(int i = 0; i < 20; i++){
+			people.add(new Person("name:"+i, i)); 
 		}
 	}
 
@@ -91,6 +90,37 @@ public class MatrixCalculator{
 		return people; 
 	}
 	
+	public boolean addPerson(String name, int age){
+		Person person = new Person(name, age);
+		return people.add(person); 
+	}
+
+
+	public Person searchByName(String name){
+
+		Person personFound = null; 
+
+		for(int i = 0; i<people.size(); i++){
+			if(people.get(i).getName().equals(name)){
+				personFound = people.get(i); 
+			}
+		}
+		return personFound;
+	}
+
+	public boolean deleteByName(String name){
+		return people.remove(searchByName(name)); 
+	}
+
+	public String printPeople(){
+		String msj = ""; 
+		for(int i = 0; i < people.size(); i++){
+			msj += people.get(i); 
+		}
+		return msj; 
+	}
+
+
 
 
 }

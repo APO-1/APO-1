@@ -1,11 +1,32 @@
 package model; 
 
-public class Person{
-	private String name; 
+public class Person implements Comparable<Person> { 
 
-	public Person(){
-		this.name = "personName"; 
+	private String name; 
+	private int age;
+
+	public Person(String name, int age){
+		this.name = name; 
+		this.age = age;
+
+	}
+
+	public String getName(){
+		return name; 
+	}
+
+	public int getAge(){
+		return age;
 	}
 
 
+	@Override
+	public String toString(){
+		return "Name: " + name + " age: " + age + "\n";
+	}
+
+	public int compareTo(Person person){
+		return this.age - person.getAge(); 
+
+	}
 }
