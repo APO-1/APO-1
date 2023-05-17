@@ -67,6 +67,11 @@ public class Main{
 	public void printTensor(){
 
 		System.out.println(controller.showMatrixOfTensor(0)); 
+		System.out.println(controller.printDoubleMatrix()); 
+		System.out.println(controller.printCharMatrix());
+		char a = 65; 
+		System.out.println(a); 
+
 		/** System.out.println(controller.showMatrixOfTensor(1));  */
 		/** System.out.println(controller.showMatrixOfTensor(2));  */
 

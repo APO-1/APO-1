@@ -1,6 +1,7 @@
 package model; 
 
 import java.util.ArrayList; 
+import java.lang.Math; 
 
 public class MatrixCalculator{
 
@@ -93,7 +94,7 @@ public class MatrixCalculator{
 	public ArrayList<Person> getPeople(){
 		return people; 
 	}
-	
+
 	public boolean addPerson(String name, int age){
 		Person person = new Person(name, age);
 		return people.add(person); 
@@ -152,6 +153,40 @@ public class MatrixCalculator{
 		return msj; 
 	}
 
+	public String printDoubleMatrix(){
+		String msj = ""; 
+		int upperBound = 5;
+		int lowerBound = 0;
+		int range = (upperBound - lowerBound) + 1;
+
+		for(int i = 0; i < ROW; i++){
+			msj += "\n"; 
+			for(int j = 0; j < COLUMN; j++){
+				// 
+				matrix[i][j] = (int)(Math.random() * range) + lowerBound;
+				msj += matrix[i][j] + " ";  
+			}
+		}
+		return msj; 
+	}
+
+	public String printCharMatrix(){
+		String msj = ""; 
+		int upperBound = 70;
+		int lowerBound = 65;
+		int range = (upperBound - lowerBound) + 1;
+		char[][] chars = new char[ROW][COLUMN]; 
+
+		for(int i = 0; i < ROW; i++){
+			msj += "\n"; 
+			for(int j = 0; j < COLUMN; j++){
+				// 
+				chars[i][j] = (char)((Math.random() * range) + lowerBound);
+				msj += chars[i][j] + " ";  
+			}
+		}
+		return msj; 
+	}
 
 
 }
