@@ -7,12 +7,12 @@ public class Saving{
 
 	private String name; 
 	private double cost; 
-	private Category category;
+    private Category category;
 
 	public Saving(String name, double cost, Category category){
 		this.name = name; 
 		this.cost = cost; 
-		this.category = category;
+        this.category = category;
 	}
 
 	public String getName(){

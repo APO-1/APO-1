@@ -83,6 +83,11 @@ public class User{
 		return name; 
 	}
 
+	
+	public String getId(){
+		return id; 
+	}
+
 
 
 
