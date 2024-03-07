@@ -35,6 +35,7 @@ public class Main{
         System.out.println("1. Add User"); 
         System.out.println("2. Add Saving"); 
         System.out.println("3. List savings"); 
+        System.out.println("4. Search user");
 
     }
 
@@ -54,12 +55,16 @@ public class Main{
                 String msj = controller.listAllSavings();
                 System.out.println(msj);
                 break;
+                
+            case 4:
+               SearchUser();
+               break;
 
             case 0:
                 System.out.println("Exit."); 
                 break; 
 
-            case -1: 
+            default: 
                 System.out.println("Invalid Option!!"); 
                 break; 
         }
@@ -110,10 +115,10 @@ public class Main{
 
         System.out.println("Type type of Saving:"); 
         System.out.println(" 1. for TRANSPORT");
-        System.out.println(" 2. for ");
-        System.out.println(" 3. for ");
-        System.out.println(" 4. for ");
-        System.out.println(" 5. for ");
+        System.out.println(" 2. for DINNER");
+        System.out.println(" 3. for SERVICE");
+        System.out.println(" 4. for HEALTH");
+        System.out.println(" 5. for UNIVERSITY");
 
         category = reader.nextInt();
 
@@ -122,6 +127,13 @@ public class Main{
 
         String msg = controller.addSaving(nameSaving, costSaving, category);
         System.out.println(msg);
+    }
+
+    public void SearchUser(){
+        System.out.println("Escriba el id o identificacion de la persona a buscar");
+        String id = reader.next();
+        int pos = controller.validateUserById(id);
+        controller.searchId(pos, id);
     }
 
 }
